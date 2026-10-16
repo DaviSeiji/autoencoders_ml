@@ -8,6 +8,38 @@ Implementar e avaliar modelos **Variational Autoencoder (VAE)** para explorar a 
 
 ## Desenvolvimento
 
+### Execução do notebook
+
+Crie um ambiente virtual e instale as dependências (PowerShell):
+
+```powershell
+python -m venv .venv
+.\.venv\Scripts\python.exe -m pip install -r requirements.txt
+```
+
+Abra `notebooks/projeto_vae.ipynb` no VS Code, selecione o Python de `.venv`
+como kernel e execute as células em ordem. O primeiro carregamento requer
+internet: Dry Bean é obtido da UCI via `ucimlrepo` e MNIST via TensorFlow/Keras.
+Os dados brutos ficam em `data/` (ignorado pelo Git) para reutilização.
+
+Etapas iniciais implementadas no notebook:
+
+- [x] Importar as bibliotecas e configurar seeds para reprodutibilidade.
+- [x] Carregar Dry Bean e MNIST diretamente pelo Python.
+- [x] Separar treino, validação e teste com estratificação e seed fixa.
+- [x] Padronizar Dry Bean usando apenas o treino e normalizar MNIST para `[0, 1]`.
+
+A seed utilizada é `42`. A reprodução dos experimentos também depende das
+mesmas versões das bibliotecas e do mesmo ambiente de execução; o notebook
+exibe essas versões. Dry Bean usa aproximadamente 70%/15%/15% para
+treino/validação/teste, com `StandardScaler` ajustado somente no treino.
+MNIST preserva o teste oficial e separa 10.000 das 60.000 imagens de treino
+para validação. As imagens são convertidas em vetores de 784 pixels para
+os primeiros VAEs densos. Os rótulos são preservados para análise.
+
+As células de pré-processamento estão preparadas para execução pelo usuário;
+a validação durante o desenvolvimento usa apenas pequenos dados sintéticos.
+
 O projeto contempla as seguintes etapas:
 
 1. **Seleção dos datasets**
