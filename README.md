@@ -10,14 +10,13 @@ Implementar e avaliar modelos **Variational Autoencoder (VAE)** para explorar a 
 
 ### Execução do notebook
 
-Crie um ambiente virtual e instale as dependências (PowerShell):
+Instale as dependências no Python que você usa (PowerShell):
 
 ```powershell
-python -m venv .venv
-.\.venv\Scripts\python.exe -m pip install -r requirements.txt
+python -m pip install -r requirements.txt
 ```
 
-Abra `notebooks/projeto_vae.ipynb` no VS Code, selecione o Python de `.venv`
+Abra `notebooks/projeto_vae.ipynb` no VS Code, selecione esse mesmo Python
 como kernel e execute as células em ordem. O primeiro carregamento requer
 internet: Dry Bean é obtido da UCI via `ucimlrepo` e MNIST via TensorFlow/Keras.
 Os dados brutos ficam em `data/` (ignorado pelo Git) para reutilização.
@@ -28,14 +27,22 @@ Etapas iniciais implementadas no notebook:
 - [x] Carregar Dry Bean e MNIST diretamente pelo Python.
 - [x] Separar treino, validação e teste com estratificação e seed fixa.
 - [x] Padronizar Dry Bean usando apenas o treino e normalizar MNIST para `[0, 1]`.
+- [x] Definir um VAE denso reutilizável, com topologia e dimensão latente configuráveis.
+
+O notebook oferece `criar_vae` e `treinar_vae` para os dois datasets, com
+custo de reconstrução + KL e parada antecipada baseada em `val_loss`.
+Os exemplos de uso estão em Markdown; os treinamentos e a comparação
+de arquiteturas ainda devem ser executados.
 
 A seed utilizada é `42`. A reprodução dos experimentos também depende das
 mesmas versões das bibliotecas e do mesmo ambiente de execução; o notebook
-exibe essas versões. Dry Bean usa aproximadamente 70%/15%/15% para
+configura operações determinísticas. Após verificar ausentes e remover duplicatas,
+Dry Bean usa a proporção 70%/15%/15% para
 treino/validação/teste, com `StandardScaler` ajustado somente no treino.
 MNIST preserva o teste oficial e separa 10.000 das 60.000 imagens de treino
-para validação. As imagens são convertidas em vetores de 784 pixels para
-os primeiros VAEs densos. Os rótulos são preservados para análise.
+para validação. As imagens normalizadas mantêm o formato 28 × 28.
+Os rótulos são preservados para análise, e tabelas comparam as porcentagens
+das classes entre os conjuntos.
 
 As células de pré-processamento estão preparadas para execução pelo usuário;
 a validação durante o desenvolvimento usa apenas pequenos dados sintéticos.
