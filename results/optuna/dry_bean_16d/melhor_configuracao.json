@@ -1,0 +1,24 @@
+{
+  "trial": 3,
+  "val_score": 3.779433479459267,
+  "melhor_epoca": 31,
+  "modelo": {
+    "input_shape": [
+      16
+    ],
+    "latent_dim": 16,
+    "camadas": [
+      128,
+      128
+    ],
+    "tipo": "tabular",
+    "learning_rate": 0.001319994226153501,
+    "ativacao": "leaky_relu",
+    "otimizador": "Adam",
+    "peso_kl": 1.0
+  },
+  "batch_size": 128,
+  "epochs": 100,
+  "patience": 10,
+  "seed": 42
+}
