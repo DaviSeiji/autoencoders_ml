@@ -1,0 +1,46 @@
+{
+  "assinatura": {
+    "baseline": {
+      "trial": 27,
+      "val_score": 3.9286789406002978,
+      "melhor_epoca": 36,
+      "modelo": {
+        "input_shape": [
+          16
+        ],
+        "latent_dim": 32,
+        "camadas": [
+          64
+        ],
+        "tipo": "tabular",
+        "learning_rate": 0.0013256926154510287,
+        "ativacao": "leaky_relu",
+        "otimizador": "Adam",
+        "peso_kl": 1.0
+      },
+      "batch_size": 64,
+      "epochs": 100,
+      "patience": 10,
+      "seed": 42
+    },
+    "lambda_aux": 1.0,
+    "classes": [
+      "BARBUNYA",
+      "BOMBAY",
+      "CALI",
+      "DERMASON",
+      "HOROZ",
+      "SEKER",
+      "SIRA"
+    ],
+    "hashes_treino_validacao": [
+      "123bbb58d70db2dbf36099ce5da26a9cfebc1bb68e47de15991c2b5574aaebc6",
+      "2856b71e6c7b16b90b525894b42698a4ad66711cb5f4a06ab9c1a7c85fed5210",
+      "7e6af31ce20bdcb07ffa07ad38fea6137eb1dbce0909805a86f9b521d4e34be5",
+      "caea7052e3878b742010e1675767a8e8c62b1c65eeff55344086e67bcd591289"
+    ],
+    "criterio": "val_reconstrucao_mais_kl",
+    "versao": 1
+  },
+  "melhor_epoca": 32
+}

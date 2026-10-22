@@ -1,0 +1,51 @@
+{
+  "assinatura": {
+    "baseline": {
+      "trial": 3,
+      "val_score": 25.289824273681642,
+      "melhor_epoca": 49,
+      "modelo": {
+        "input_shape": [
+          28,
+          28
+        ],
+        "latent_dim": 16,
+        "camadas": [
+          128,
+          128
+        ],
+        "tipo": "imagem",
+        "learning_rate": 0.001319994226153501,
+        "ativacao": "leaky_relu",
+        "otimizador": "Adam",
+        "peso_kl": 1.0
+      },
+      "batch_size": 128,
+      "epochs": 50,
+      "patience": 7,
+      "seed": 42
+    },
+    "lambda_aux": 1.0,
+    "classes": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9
+    ],
+    "hashes_treino_validacao": [
+      "a3c21af7008094b04707e41894986d65935a33bdc8d94128811c554269c0152a",
+      "8d092769602216a689c5aa7924df9f0c467fccdb1a5be9c805a206a47ca82da5",
+      "9bee4b81ef9f7eb6dab9d27ea34ca9671a601c97eac6af3e8bc1aa39984cf494",
+      "f639a340f73cacaf5e3c456619d7b1975a31fec9b280b04f529fe855ee2ec031"
+    ],
+    "criterio": "val_reconstrucao_mais_kl",
+    "versao": 1
+  },
+  "melhor_epoca": 50
+}

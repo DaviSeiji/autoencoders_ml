@@ -1,0 +1,10 @@
+numpy
+pandas
+torch
+torchvision
+ucimlrepo
+scikit-learn>=1.2
+matplotlib
+optuna
+umap-learn>=0.5
+ipykernel
